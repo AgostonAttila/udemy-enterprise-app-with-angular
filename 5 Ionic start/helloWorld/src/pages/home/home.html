@@ -1,0 +1,17 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Blank Hello
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <button ion-button (click)="click()">Click me</button>
+
+
+  <ion-list>
+   <button ion-item *ngFor="let item of items" (click)="selectItem(item.description)">{{item}}</button>  
+  </ion-list>
+
+</ion-content>

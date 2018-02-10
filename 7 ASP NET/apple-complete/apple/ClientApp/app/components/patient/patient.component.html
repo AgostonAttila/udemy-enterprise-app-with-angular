@@ -1,0 +1,52 @@
+<h1>Patient</h1>
+<form [formGroup]="form" (ngSubmit)="save()">
+  <div class="form-group">
+    <label>Name</label>
+    <div *ngIf="!form.get('name').valid" class="alert alert-danger">
+      {{ form.get('name').getError('remote') }}
+    </div>
+    <input type="text" formControlName="name" class="form-control">
+  </div>
+  <!-- Address --> 
+  <div formGroupName="address">
+    <h2>Address</h2>
+    <div class="form-group">
+      <label>Street</label>
+      <div *ngIf="!form.get('address.street').valid" class="alert alert-danger">
+        {{ form.get('address.street').getError('remote') }}
+      </div>
+      <input type="text" formControlName="street" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>City</label>
+      <div *ngIf="!form.get('address.city').valid" class="alert alert-danger">
+        {{ form.get('address.city').getError('remote') }}
+      </div>
+      <input type="text" formControlName="city" class="form-control">
+    </div>
+
+  </div>
+  <!-- Medications --> 
+  <div>
+    <h2>Medications</h2>
+    <div class="form-inline">
+      <div class="form-group">
+        <input type="text" placeholder="Medication" #m name="medication" class="form-control">
+      </div>
+      <button type="button" class="btn btn-default" (click)="addMedication(m)">Add Medication</button>
+    </div>
+    <br>
+    <ul class="list-group">
+      <li *ngFor="let m of form.value.medications" class="list-group-item">
+        {{ m.name }}
+      </li>
+    </ul>
+  </div>
+  <!-- Debug -->
+  <br>
+  <p>{{ form.value | json }}</p>
+  <p>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </p>
+</form>

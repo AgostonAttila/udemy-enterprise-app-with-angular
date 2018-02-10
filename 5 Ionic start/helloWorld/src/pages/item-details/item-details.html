@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons start>
+            <button ion-button (click)="cancel()">
+                <ion-icon ios="md-close" md="md-close"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            Item Details
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="ok()">
+                <ion-icon ios="md-checkmark" md="md-checkmark"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-list>
+
+        <ion-item>
+            <ion-label fixed>Description</ion-label>
+            <ion-input type="text" [(ngModel)]="item.description"></ion-input>
+        </ion-item>
+
+    </ion-list>
+
+    <div text-center>
+        <button ion-button color="dark" round>Save</button>
+    </div>
+
+
+
+</ion-content>
